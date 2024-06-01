@@ -1,4 +1,4 @@
-(define (domain execise0)
+(define (domain exercise0)
   (:requirements :strips :typing :negative-preconditions :disjunctive-preconditions :equality)
   (:types robot location object)
   (:predicates

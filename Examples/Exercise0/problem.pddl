@@ -1,5 +1,5 @@
 (define (problem exercise0-problem-robot)
-  (:domain execise0)
+  (:domain exercise0)
   
   (:objects
     robot1 robot2 - robot

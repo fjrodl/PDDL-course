@@ -29,7 +29,6 @@
 	)
 )
 
-
 (:action arrive
 	:parameters (?v - robot ?a ?b - location)
 	:precondition (and

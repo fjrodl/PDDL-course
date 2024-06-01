@@ -50,6 +50,8 @@
 		)
 )
 
+; PDDL Course 2024
+; over all is for conditions that must hold for the full duration of the action. So you could interpret your condition as, "for the entire duration of something, never let the battery ".
 (:durative-action sample_rock
 :parameters (?x - rover ?s - store ?p - waypoint)
 :duration (= ?duration 8)
