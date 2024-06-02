@@ -135,3 +135,27 @@ These questions can help you grasping the key concepts presented during the sess
 Install the next script for the dependencies
 
 ## Acknowledgments <a name="Acknowledgments"></a>
+
+
+### DMARCE Project
+
+Decision Making in Autonomous Robots: Cybersecurity and Explainability (DMARCE).
+
+![DMARCE_logo drawio](https://user-images.githubusercontent.com/3810011/192087445-9aa45366-1fec-41f5-a7c9-fa612901ecd9.png)
+
+
+DMARCE (EDMAR+CASCAR) Project: EDMAR PID2021-126592OB-C21 -- CASCAR PID2021-126592OB-C22 funded by MCIN/AEI/10.13039/501100011033 and by ERDF A way of making Europe 
+
+![DMARCE_EU eu_logo](https://raw.githubusercontent.com/DMARCE-PROJECT/DMARCE-PROJECT.github.io/main/logos/micin-uefeder-aei.png)
+
+### SELF-AIR Project
+
+Supporting Extensive Livestock Farming with the use of Autonomous Intelligent Robots 
+
+<img src="https://raw.githubusercontent.com/shepherd-robot/.github/main/profile/robotics_wolf_minimal.png" alt= "SELF_AIR_logo" width="50%" height="50%">
+
+
+Grant TED2021-132356B-I00 funded by MCIN/AEI/10.13039/501100011033 and by the “European Union NextGenerationEU/PRTR"
+
+![SELF_AIR_EU eu_logo](https://raw.githubusercontent.com/shepherd-robot/.github/main/profile/micin-financiadoUEnextgeneration-prtr-aei.png)
+
