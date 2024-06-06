@@ -24,4 +24,55 @@ https://plansys2.github.io/tutorials/docs/simple_example.html
 
 ### 
 
+## Exercise
 
+Create the Doxygen file an take a look to 
+
+
+### An example for creating documentation
+
+The `Doxyfile` in this repository was generated using `doxygen -g`, and then
+edited in the following way:
+
+```
+Line 35:
+PROJECT_NAME           = "Example of Doxygen Documentation Procedure"
+Line 47:
+PROJECT_BRIEF          = "This is just a test of Doxygen"
+Line 54:
+PROJECT_LOGO           = "./DiConIcon.ico"
+Line 61:
+OUTPUT_DIRECTORY       = "generated-docs"
+Line 438:
+EXTRACT_ALL            = YES
+Line 363:
+DISTRIBUTE_GROUP_DOC   = YES
+Line 444:
+EXTRACT_PRIVATE        = YES
+Line 450:
+EXTRACT_PACKAGE        = YES
+Line 456:
+EXTRACT_STATIC         = YES
+Line 481:
+EXTRACT_ANON_NSPACES   = YES
+Line 759:
+WARN_NO_PARAMDOC       = YES
+Line 867:
+RECURSIVE              = YES
+Line 876:
+EXCLUDE                = README.md
+Line 998:
+SOURCE_BROWSER         = YES
+Line 1004:
+INLINE_SOURCES         = YES
+Line 1017:
+REFERENCED_BY_RELATION = YES
+Line 1023:
+REFERENCES_RELATION    = YES
+Line 1031:
+REFERENCES_LINK_SOURCE = NO
+Line 2334:
+CALL_GRAPH             = YES
+Line 2346:
+CALLER_GRAPH           = YES
+```
