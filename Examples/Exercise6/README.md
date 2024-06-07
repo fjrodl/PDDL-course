@@ -1,78 +1,86 @@
-# Plansys2
+# Durative Actions
 
-Plansys2 is a framework for developing and executing robot task planning systems. It's designed to be modular, flexible, and scalable, making it suitable for a wide range of robotic applications. Plansys2 is built on top of the Robot Operating System (ROS) 2, which provides a set of tools and libraries for building robot applications.
-
-Plansys2 offers several key features:
-
-1. **Task Planning**: Plansys2 provides tools for task planning, allowing robots to generate plans to achieve complex goals autonomously. It supports various planning domains, including classical planning, temporal planning, and hybrid planning.
-
-2. **ROS Integration**: Being built on ROS 2, Plansys2 seamlessly integrates with the ROS ecosystem. This integration enables communication with robot hardware, perception systems, and other software components using ROS messages and services.
-
-3. **Modularity**: Plansys2 is designed with a modular architecture, allowing developers to easily extend and customize its functionality. Users can plug in different planning algorithms, domain models, and execution engines to tailor the system to their specific requirements.
-
-4. **Scalability**: Plansys2 is designed to be scalable, allowing it to handle large-scale planning problems and complex robotic systems efficiently. It supports distributed planning architectures, enabling collaboration between multiple robots and planning nodes.
-
-5. **Community Support**: Plansys2 benefits from an active community of developers and users who contribute to its development, provide support, and share resources such as tutorials, examples, and documentation.
+Durative actions in PDDL allow for the modeling of actions that take time to execute, with conditions and effects specified at different points in time. This enables more realistic and complex planning scenarios, particularly in domains where the timing and duration of actions are critical. By defining the duration, conditions, and effects of actions, planners can generate plans that respect temporal constraints and ensure the successful achievement of goals.
 
 
+## Step by Step
 
-## Execution
+Durative actions are actions that have a duration, meaning they take time to execute. In contrast to instantaneous actions, durative actions are particularly useful in temporal planning, where the timing and duration of actions are important. PDDL2.1 introduced the concept of durative actions to handle such scenarios.
+Key Concepts of Durative Actions in PDDL
 
-Source: https://github.com/PlanSys2/ros2_planning_system_examples.git
+    Duration: Specifies how long the action takes.
+    Conditions: Conditions that must hold at specific times during the action's execution (e.g., at the start, end, or throughout the action).
+    Effects: Changes to the state that occur at specific times during the action's execution.
 
-https://plansys2.github.io/tutorials/docs/simple_example.html
+### Syntax of Durative Actions in PDDL
 
-### 
-
-## Exercise
-
-Create the Doxygen file an take a look to 
+Durative actions are defined using the :durative-action keyword. The definition includes parameters, duration, conditions, and effects.
 
 
-### An example for creating documentation
 
-The `Doxyfile` in this repository was generated using `doxygen -g`, and then
-edited in the following way:
 
-```
-Line 35:
-PROJECT_NAME           = "Example of Doxygen Documentation Procedure"
-Line 47:
-PROJECT_BRIEF          = "This is just a test of Doxygen"
-Line 54:
-PROJECT_LOGO           = "./DiConIcon.ico"
-Line 61:
-OUTPUT_DIRECTORY       = "generated-docs"
-Line 438:
-EXTRACT_ALL            = YES
-Line 363:
-DISTRIBUTE_GROUP_DOC   = YES
-Line 444:
-EXTRACT_PRIVATE        = YES
-Line 450:
-EXTRACT_PACKAGE        = YES
-Line 456:
-EXTRACT_STATIC         = YES
-Line 481:
-EXTRACT_ANON_NSPACES   = YES
-Line 759:
-WARN_NO_PARAMDOC       = YES
-Line 867:
-RECURSIVE              = YES
-Line 876:
-EXCLUDE                = README.md
-Line 998:
-SOURCE_BROWSER         = YES
-Line 1004:
-INLINE_SOURCES         = YES
-Line 1017:
-REFERENCED_BY_RELATION = YES
-Line 1023:
-REFERENCES_RELATION    = YES
-Line 1031:
-REFERENCES_LINK_SOURCE = NO
-Line 2334:
-CALL_GRAPH             = YES
-Line 2346:
-CALLER_GRAPH           = YES
-```
+#### Breakdown of Durative Actions
+move Action
+
+    Parameters: ?r - robot ?from - location ?to - location
+    Duration: = ?duration 5
+        The action takes 5 time units to complete.
+    Condition:
+        at start (at ?r ?from): The robot must be at the starting location at the beginning of the action.
+        over all (not (= ?from ?to)): Throughout the action's duration, the starting location and the destination must be different.
+    Effect:
+        at start (not (at ?r ?from)): At the start of the action, the robot is no longer at the starting location.
+        at end (at ?r ?to): At the end of the action, the robot is at the destination location.
+
+pick_up Action
+
+    Parameters: ?r - robot ?obj - object ?loc - location
+    Duration: = ?duration 2
+        The action takes 2 time units to complete.
+    Condition:
+        at start (at ?r ?loc): The robot must be at the location at the beginning of the action.
+        at start (at ?obj ?loc): The object must be at the location at the beginning of the action.
+    Effect:
+        at start (not (at ?obj ?loc)): At the start of the action, the object is no longer at the location.
+        at end (holding ?r ?obj): At the end of the action, the robot is holding the object.
+
+put_down Action
+
+    Parameters: ?r - robot ?obj - object ?loc - location
+    Duration: = ?duration 2
+        The action takes 2 time units to complete.
+    Condition:
+        at start (holding ?r ?obj): The robot must be holding the object at the beginning of the action.
+    Effect:
+        at start (not (holding ?r ?obj)): At the start of the action, the robot is no longer holding the object.
+        at end (at ?obj ?loc): At the end of the action, the object is at the location.
+
+#### Temporal Planning with Durative Actions
+
+In temporal planning, actions overlap in time, and their interactions must be carefully managed. Planners that handle durative actions use advanced scheduling techniques to ensure that all conditions and constraints are satisfied throughout the execution timeline.
+
+### Explanation
+
+Explanation
+
+    Domain Definition:
+        Types: There are three types: robot, location, and object.
+        Predicates:
+            `(at ?obj - (either robot object) ?loc - location)`: Indicates that an object (either a robot or a generic object) is at a certain location.
+            `(holding ?r - robot ?obj - object)`: Indicates that a robot is holding an object.
+        Durative Actions:
+            `move`: Represents a robot moving from one location to another. It takes 5 time units and has conditions and effects at the start and end of the action.
+            `pick_up`: Represents a robot picking up an object. It takes 2 time units and has conditions and effects at the start and end of the action.
+            `put_down`: Represents a robot putting down an object. It takes 2 time units and has conditions and effects at the start and end of the action.
+
+    Problem Definition:
+        `Objects`: There is one robot (robot1), three locations (loc1, loc2, loc3), and one object (box1).
+        `Initial State`: The robot and the box are both at loc1.
+        `Goal State`: The box should be at loc3, and the robot should also end up at loc3.
+
+### Test
+
+You can test it with 
+ ./SMTPlan
+
+ ./popf 
