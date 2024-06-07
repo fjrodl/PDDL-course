@@ -30,9 +30,9 @@
     (link  kitchen livingroom)
 
 
-	(= (distance bathroom1 bedroom1) 5)
-	(= (distance garden bedroom1 ) 15)
-	(= (distance garden bedroom2 ) 15)
+	(= (distance bathroom1 bedroom1) 50)
+	(= (distance garden bedroom1 ) 1500)
+	(= (distance garden bedroom2 ) 1500)
 	(= (distance bedroom1 livingroom ) 20)
 	(= (distance corridor bedroom2 ) 7)
 	(= (distance corridor bathroom2 ) 10)
@@ -43,8 +43,8 @@
 	
 	
 	(= (distance  bedroom1 bathroom1) 5)
-	(= (distance  bedroom1 garden) 15)
-	(= (distance  bedroom2 garden) 15)
+	(= (distance  bedroom1 garden) 1500)
+	(= (distance  bedroom2 garden) 1500)
 	(= (distance  livingroom bedroom1) 20)
 	(= (distance  bedroom2 corridor) 7)
 	(= (distance  bathroom2 corridor) 10)

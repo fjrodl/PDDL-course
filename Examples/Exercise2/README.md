@@ -1,33 +1,62 @@
-#Exercise 2
+# Exercise 
 
-The "Rover" domain in the International Planning Competition (IPC) is a classic benchmark problem used to evaluate planners. This example involves a rover navigating a grid world to perform tasks while accounting for various constraints such as time and resource consumption. 
-
-
-1. **Numeric**:
-   - Numeric fluents are used to represent quantities or numerical values that change over time. In the context of the Rover domain, these could represent parameters such as energy levels, resource amounts, or distances traveled.
-
-2. **Simple Time**:
-   - Simple time is a basic form of temporal reasoning where actions are assumed to take constant time durations. This simplifies the modeling of actions' effects on the timeline.
-   - It's called "simple" time because actions are assumed to have fixed durations, without the complexity of specifying variable or durative actions with flexible durations.
-
-3. **STRIPS**:
-   - STRIPS (Stanford Research Institute Problem Solver) is a classical planning formalism that represents states, actions, and goals using first-order logic.
-   - In the Rover domain, STRIPS is used to define the states, actions, and preconditions/effects of actions.
-
-4. **Time**:
-   - Time constraints are incorporated into the planning domain, meaning actions must be executed within specified time bounds or deadlines.
-   - The planner needs to consider the temporal aspects of actions and their effects when generating plans.
+This PDDL domain definition models a scenario where robots can move between locations, keep track of the distance they have traveled, and visit charging stations to get reloaded. The domain includes both instantaneous and durative actions to handle different aspects of robot navigation and recharging.
 
 
-# Exercises
+### Explanation
 
- 1. Run Exercise2/SimpleTime STRover.pddl pfile1. First with popf and then with SMTPlan
+1. **Domain Definition**:
+   - **Requirements**: 
+     - `:typing`: Allows the use of types in the domain definition.
+     - `:fluents`: Allows the use of numeric fluents, which can change over time.
+     - `:durative-actions`: Allows the definition of actions that take time to execute.
+     - `:duration-inequalities`: Allows the use of inequalities in specifying the duration of actions.
+     - `:negative-preconditions`: Allows the use of negative conditions in action preconditions.
+   - **Types**: Defines two types: `robot` and `location`.
+   - **Predicates**:
+     - `(at ?x - robot ?y - location)`: Indicates that a robot is at a specific location.
+     - `(navigating ?x - robot ?y ?z - location)`: Indicates that a robot is navigating from one location to another.
+     - `(loaded ?v - robot)`: Indicates that a robot is loaded (possibly with energy or cargo).
+     - `(link ?x ?y - location)`: Indicates that a link exists between two locations.
+   - **Functions**:
+     - `(distanceTravelled ?v - robot)`: The total distance the robot has traveled from the origin.
+     - `(distance ?x ?y - location)`: The distance between two locations.
+     - `(speed ?v - robot)`: The speed of the robot while navigating.
+   - **Actions**:
+     - **Durative Action** `drive`: A robot drives from one location to another.
+       - **Parameters**: `?v` (robot), `?a` (starting location), `?b` (destination location).
+       - **Duration**: Unconstrained duration (up to 10,000 units of time).
+       - **Condition**: 
+         - At the start: The robot is at the starting location and a link exists between the two locations.
+         - Over the duration: The robot is navigating from the start to the destination location.
+       - **Effect**: 
+         - At the start: The distance traveled by the robot is reset to 0.
+         - During the action: The distance traveled by the robot increases based on its speed.
+         - At the start: The robot starts navigating from the start to the destination location and is no longer at the starting location.
+     - **Action** `arrive`: A robot arrives at the destination location.
+       - **Parameters**: `?v` (robot), `?a` (starting location), `?b` (destination location).
+       - **Precondition**: 
+         - The distance traveled by the robot is at least the distance between the two locations.
+         - The robot is navigating from the start to the destination location.
+       - **Effect**: 
+         - The robot is no longer navigating.
+         - The robot is now at the destination location.
+     - **Action** `visitChargingStation`: A robot visits a charging station to get loaded.
+       - **Parameters**: `?v` (robot).
+       - **Precondition**: 
+         - The distance traveled by the robot is between 10 and 20 units.
+         - The robot is not already loaded.
+       - **Effect**: The robot becomes loaded.
 
- 2. What are the differences when launching these exercises. Provide an answer based on metrics (number of actions, time of execution, etc)
 
- 3. What is the main difference between pfile1 in Numeric and pfile1 in SimpleTime? And between domains?
+## Exercises
 
- 4. 
+ 1. What happen when you remove part of your links between locations?
+
+ 2. What happen if you play with distances?
+
+ ## Execution
 
 
+  $ popf DomainRobot.pddl ProblemRobot.pddl
 

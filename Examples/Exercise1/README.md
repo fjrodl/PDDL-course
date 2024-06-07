@@ -1,62 +1,73 @@
-# Exercise 
-
-This PDDL domain definition models a scenario where robots can move between locations, keep track of the distance they have traveled, and visit charging stations to get reloaded. The domain includes both instantaneous and durative actions to handle different aspects of robot navigation and recharging.
-
-
-### Explanation
-
-1. **Domain Definition**:
-   - **Requirements**: 
-     - `:typing`: Allows the use of types in the domain definition.
-     - `:fluents`: Allows the use of numeric fluents, which can change over time.
-     - `:durative-actions`: Allows the definition of actions that take time to execute.
-     - `:duration-inequalities`: Allows the use of inequalities in specifying the duration of actions.
-     - `:negative-preconditions`: Allows the use of negative conditions in action preconditions.
-   - **Types**: Defines two types: `robot` and `location`.
-   - **Predicates**:
-     - `(at ?x - robot ?y - location)`: Indicates that a robot is at a specific location.
-     - `(navigating ?x - robot ?y ?z - location)`: Indicates that a robot is navigating from one location to another.
-     - `(loaded ?v - robot)`: Indicates that a robot is loaded (possibly with energy or cargo).
-     - `(link ?x ?y - location)`: Indicates that a link exists between two locations.
-   - **Functions**:
-     - `(distanceTravelled ?v - robot)`: The total distance the robot has traveled from the origin.
-     - `(distance ?x ?y - location)`: The distance between two locations.
-     - `(speed ?v - robot)`: The speed of the robot while navigating.
-   - **Actions**:
-     - **Durative Action** `drive`: A robot drives from one location to another.
-       - **Parameters**: `?v` (robot), `?a` (starting location), `?b` (destination location).
-       - **Duration**: Unconstrained duration (up to 10,000 units of time).
-       - **Condition**: 
-         - At the start: The robot is at the starting location and a link exists between the two locations.
-         - Over the duration: The robot is navigating from the start to the destination location.
-       - **Effect**: 
-         - At the start: The distance traveled by the robot is reset to 0.
-         - During the action: The distance traveled by the robot increases based on its speed.
-         - At the start: The robot starts navigating from the start to the destination location and is no longer at the starting location.
-     - **Action** `arrive`: A robot arrives at the destination location.
-       - **Parameters**: `?v` (robot), `?a` (starting location), `?b` (destination location).
-       - **Precondition**: 
-         - The distance traveled by the robot is at least the distance between the two locations.
-         - The robot is navigating from the start to the destination location.
-       - **Effect**: 
-         - The robot is no longer navigating.
-         - The robot is now at the destination location.
-     - **Action** `visitChargingStation`: A robot visits a charging station to get loaded.
-       - **Parameters**: `?v` (robot).
-       - **Precondition**: 
-         - The distance traveled by the robot is between 10 and 20 units.
-         - The robot is not already loaded.
-       - **Effect**: The robot becomes loaded.
+# Basic 
+This basic exercise  shows how robots can be coordinated to move objects between locations, using actions with preconditions and effects to achieve a specified goal state
 
 
-## Exercises
+## Explanation
 
- 1. What happen when you remove part of your links between locations?
+###   Domain Definition:
+        Requirements:
+            :strips: Standard requirement for basic planning.
+            :typing: Allows the use of types in the domain definition.
+            :negative-preconditions: Allows the use of negative conditions in action preconditions.
+            :disjunctive-preconditions: Allows the use of disjunctions (logical OR) in action preconditions.
+            :equality: Allows the use of equality and inequality in conditions.
+        Types: Defines three types: robot, location, and object.
+        Predicates:
+            (at ?obj - (either robot object) ?loc - location): Indicates that a robot or object is at a specific location.
+            (holding ?r - robot ?obj - object): Indicates that a robot is holding an object.
+        Actions:
+            move: A robot moves from one location to another.
+                Parameters: ?r (robot), ?from (starting location), ?to (destination location).
+                Precondition: The robot is at the starting location, and the starting and destination locations are different.
+                Effect: The robot is no longer at the starting location and is now at the destination.
+            pick_up: A robot picks up an object.
+                Parameters: ?r (robot), ?obj (object), ?loc (location).
+                Precondition: The robot and the object are at the same location.
+                Effect: The object is no longer at the location and the robot is holding the object.
+            put_down: A robot puts down an object.
+                Parameters: ?r (robot), ?obj (object), ?loc (location).
+                Precondition: The robot is holding the object.
+                Effect: The robot is no longer holding the object and the object is at the location.
+            visit: A robot visits one of two locations.
+                Parameters: ?r (robot), ?loc1 (first location), ?loc2 (second location).
+                Precondition: The robot is at either of the two locations.
+                Effect: The robot is no longer at the first location and is now at the second location.
 
- 2. What happen if you play with distances?
+###    Problem Definition:
+        Objects: Defines two robots (robot1, robot2), three locations (loc1, loc2, loc3), and two objects (box1, box2).
+        Initial State:
+            robot1 is at loc1.
+            robot2 is at loc2.
+            box1 is at loc1.
+            box2 is at loc3.
+        Goal State:
+            robot1 should be at loc2.
+            box1 should be at loc2.
+            box2 should be at loc1.
 
- ## Execution
+## Execution
 
+    ../../Planners/ff -o domain.pddl -f problem.pddl
 
-  $ popf DomainRobot.pddl ProblemRobot.pddl
+    ../../Planners/SMTPlan domain.pddl problem.pddl
+
+#### Planner issues  
+$ pdddl  domain.pddl  problem.pddl 
+
+    Constructing lookup tables: [10%] [20%] [30%] [40%] [50%] [60%] [70%]A problem has been encountered, and the planner has to terminate.
+    -----------------------------------------------------------------
+    Unfortunately, at present, the planner does not fully support ADL
+    unless in the rules for derived predicates.  Only two aspects of
+    ADL can be used in action definitions:
+    - forall conditions, containing a simple conjunct of propositional and
+    numeric facts;
+    - Conditional (when... ) effects, and then only with numeric conditions
+    and numeric consequences on values which do not appear in the
+    preconditions of actions.
+
+    To use this planner with your problem, you will have to reformulate it to
+    avoid ADL.  Alternatively, if you have a particularly compelling case
+    for them, please contact the authors to discuss it with them, who may be able to
+    extend the planner to meet your needs.
+
 

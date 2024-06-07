@@ -1,4 +1,4 @@
-# PDDL-course
+# Cognitive Architectures, Task Planning, and PDDL
 
 ACM SIGSOFT Summer School for Software Engineering in Robotics
 
@@ -7,15 +7,15 @@ ACM SIGSOFT Summer School for Software Engineering in Robotics
 
 # Table of Contents
 1. [Exercises](#introduction)
-    1. [Exercise 0: Starting (I)](#exercise0)
-    2. [Exercise 1: Starting (II)](#exercise1)
-    3. [Exercise 2: Metics in Planning](#exercise2)
-    4. [Exercise 3: Comparing Planners (I)](#exercise3)
-    5. [Exercise 4: Comparing Planners (II) ](#exercise4)
-    6. [Exercise 5: Durative Actions](#exercise5)
-    7. [Exercise 6: From 0 to hero (I): basic exercise](#exercisebasic)
-    8. [Exercise 7: From 0 to hero (II): PlanSys2 and BT's](#exercise6)
-    9. [Exercise 8: From 0 to hero (III): Merlin2](#exercise7)
+    1. [Exercise 1: Starting (I)](#exercise1)
+    2. [Exercise 2: Starting (II)](#exercise2)
+    3. [Exercise 3: Metrics in Planning](#exercise3)
+    4. [Exercise 4: Comparing Planners (I)](#exercise4)
+    5. [Exercise 5: Comparing Planners (II) ](#exercise5)
+    6. [Exercise 6: Durative Actions](#exercise6)
+    7. [Exercise 7: From 0 to hero (I): basic exercise](#exercise7)
+    8. [Exercise 8: From 0 to hero (II): PlanSys2 and BT's](#exercise8)
+    9. [Exercise 9: From 0 to hero (III): Merlin2 an Hybrid Cognitive Architecture (Planner + FSM-YASMIN) ](#exercise9) 
 2. [General Questions](#questionnaire)
 3. [Requirements and Traversal Tooling](#Requirements)
 4. [Acknowledgments](#Acknowledgments)
@@ -25,28 +25,28 @@ ACM SIGSOFT Summer School for Software Engineering in Robotics
 
 
 
-### Exercise 0 <a name="exercise0"></a>
+### Exercise 1 <a name="exercise1"></a>
 
 This basic exercise that shows how robots can be coordinated to move objects between locations, using actions with preconditions and effects to achieve a specified goal state
 
-### Exercise 1 <a name="exercise1"></a>
+### Exercise 2 <a name="exercise2"></a>
 
 Classic example of a robot navigating between rooms.
 
-The student needs to play between the cost of navigation in order to understand the effects on planner solutions.
+The student needs to play adding links between locations in order to understand the effects on planner solutions. 
 
-
-### Exercise 2 <a name="exercise2"></a>
-
-Example extracted from IPC competition. It is possible to see the robot behavior in different contexts. The examples present approaches associated to a possible rover. 
-
-Goal: to test all planners
 
 ### Exercise 3 <a name="exercise3"></a>
 
+Example extracted from IPC competition. It is possible to see the robot behavior in different contexts. The examples present approaches associated to a possible rover. 
+
+Goal: to test all planners and to understand the concept "Metrics" in a problem file. 
+
+### Exercise 4 <a name="exercise4"></a>
+
 Example of a PDDL domain and problem for a robot gripper for assembling blocks. 
 
-Goal: to observe the sussan anomaly. 
+Goal: to observe the Sussman anomaly. 
 
 Tools: popf vs vhpop
 
@@ -67,7 +67,7 @@ In-depth view of durative actions in PDDL. It  allows the modeling of actions th
 
 Goal: to follow a step by step example of durative actions. 
 
-### Exercise 6: From 0 to hero (I): basic exercise.  <a name="exercise5"></a>
+### Exercise 7: From 0 to hero (I): basic exercise.  <a name="exercise7"></a>
 
 In-depth view of durative actions in PDDL. It  allows the modeling of actions that take time to execute, with conditions and effects specified at different points in time. 
 
@@ -75,7 +75,7 @@ In-depth view of durative actions in PDDL. It  allows the modeling of actions th
 Goal: to follow a step by step example of durative actions. 
 
 
-###  Exercise 7: From 0 to hero (II): PlanSys2 and BT's <a name="exercise6"></a>
+###  Exercise 8: From 0 to hero (II): PlanSys2 and BT's <a name="exercise8"></a>
 
 Using PlanSys 2 for interacting with PDDL and robot behaviors. 
 
@@ -91,7 +91,7 @@ If you also want to test BT's with Plansys, the third official tutorial is for y
 
 You can find instructions on the folder Exercise 6
 
-### Exercise 7. <a name="exercise7"></a>
+### Exercise 9: From 0 to hero (III): Merlin2 an Hybrid Cognitive Architecture (Planner + FSM-YASMIN) <a name="exercise9"></a>
 
 MERLIN 2. It is a cognitive architecture called MERLIN2 fully compatible with ROS 2. It provides a cognitive architecture framework that suits the hybrid architecture paradigm but it also includes generic architectural tools for managing symbolic knowledge and scheduling robot behaviors.
 
@@ -144,7 +144,16 @@ These questions can help you grasping the key concepts presented during the sess
 
 ## Requirements <a name="Requirements"></a>
 
-Install the next script for the dependencies. 
+Install the script for the dependencies. 
+
+You will find also:
+- How to compile POPF
+- How to install plansys from package
+- How to install other robots such as turtlebot
+
+In the exercise Merlin:
+- How to install rocker (allows you to open the display locally instead of browser)
+- 
 
 
 ## Acknowledgments <a name="Acknowledgments"></a>
