@@ -7,16 +7,17 @@ ACM SIGSOFT Summer School for Software Engineering in Robotics
 
 # Table of Contents
 1. [Exercises](#introduction)
-    1. [Exercise 0](#exercise0)
-    2. [Exercise 1](#exercise1)
-    3. [Exercise 2](#exercise2)
-    4. [Exercise 3](#exercise3)
-    5. [Exercise 4](#exercise4)
-    6. [Exercise 5](#exercise5)
-    7. [Exercise 6](#exercise6)
-    8. [Exercise 7](#exercise7)
+    1. [Exercise 0: Starting (I)](#exercise0)
+    2. [Exercise 1: Starting (II)](#exercise1)
+    3. [Exercise 2: Metics in Planning](#exercise2)
+    4. [Exercise 3: Comparing Planners (I)](#exercise3)
+    5. [Exercise 4: Comparing Planners (II) ](#exercise4)
+    6. [Exercise 5: Durative Actions](#exercise5)
+    7. [Exercise 6: From 0 to hero (I): basic exercise](#exercisebasic)
+    8. [Exercise 7: From 0 to hero (II): PlanSys2 and BT's](#exercise6)
+    9. [Exercise 8: From 0 to hero (III): Merlin2](#exercise7)
 2. [General Questions](#questionnaire)
-3. [Requirements](#Requirements)
+3. [Requirements and Traversal Tooling](#Requirements)
 4. [Acknowledgments](#Acknowledgments)
 
 
@@ -59,7 +60,14 @@ Goal: to observe the complexity associate to some specific domains.
 
 [References](https://github.com/potassco/pddl-instances/tree/master/ipc-2008/domains/cyber-security-sequential-satisficing-strips/domains)
 
-### Exercise 5.  <a name="exercise5"></a>
+### Exercise 5: From 0 to hero (I): basic exercise.  <a name="exercise5"></a>
+
+In-depth view of durative actions in PDDL. It  allows the modeling of actions that take time to execute, with conditions and effects specified at different points in time. 
+
+
+Goal: to follow a step by step example of durative actions. 
+
+### Exercise 6: From 0 to hero (I): basic exercise.  <a name="exercise5"></a>
 
 In-depth view of durative actions in PDDL. It  allows the modeling of actions that take time to execute, with conditions and effects specified at different points in time. 
 
@@ -67,17 +75,21 @@ In-depth view of durative actions in PDDL. It  allows the modeling of actions th
 Goal: to follow a step by step example of durative actions. 
 
 
-### Exercise 6. <a name="exercise6"></a>
+###  Exercise 7: From 0 to hero (II): PlanSys2 and BT's <a name="exercise6"></a>
 
 Using PlanSys 2 for interacting with PDDL and robot behaviors. 
 
 
 Goal: get familiar with high level tools of interaction and integration of PDDL in practicasl robotics.  interaction with plansys cli and patrolling example. 
+If you also want to test BT's with Plansys, the third official tutorial is for you. 
 
 
 [Reference 1: PlanSys Web PAge](https://plansys2.github.io/build_instructions/index.html)
-[Reference 2: Examples](https://github.com/PlanSys2/ros2_planning_system_examples/tree/humble)
+[Reference 2: Tutorials ](https://github.com/PlanSys2/ros2_planning_system_examples/tree/humble)
 
+#### Extra: Generate documentation from huge source code projects using Doxygen
+
+You can find instructions on the folder Exercise 6
 
 ### Exercise 7. <a name="exercise7"></a>
 
@@ -132,7 +144,8 @@ These questions can help you grasping the key concepts presented during the sess
 
 ## Requirements <a name="Requirements"></a>
 
-Install the next script for the dependencies
+Install the next script for the dependencies. 
+
 
 ## Acknowledgments <a name="Acknowledgments"></a>
 
