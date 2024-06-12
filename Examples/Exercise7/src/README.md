@@ -37,6 +37,8 @@ Change for the AWS house if it is different
 Running the simulator :
 
 ```
+$ source  /usr/share/gazebo/setup.bash (remember to source gazebo for avoiding issues)
+
 $ ros2 launch tiago_simulator simulation.launch.py
 
 $ ros2 launch tiago_simulator navigation.launch.py

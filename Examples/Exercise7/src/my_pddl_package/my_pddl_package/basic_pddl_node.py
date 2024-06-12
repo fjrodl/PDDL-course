@@ -24,20 +24,22 @@ from geometry_msgs.msg import PoseStamped
 
 # You should be ussing ROS 2 parameters here. 
 
+HOME = "/home/odiseo"
+PACKAGE_PATH= HOME+"/PDDL-course/Examples/Exercise7/src/my_pddl_package/"
 # SOLVER_PATH = "<ROUTE_TO_YOUR_PLANNER>/SMTPlan"
 # Example 
-SOLVER_PATH = "/home/odiseo/PDDL-course/Planners/SMTPlan"
+SOLVER_PATH = HOME+"/PDDL-course/Planners/SMTPlan"
+#SOLVER_PATH = "/usr/local/lib/popf/popf"
 
 # PATH_PDDL_FILES = "ROUTE TO YOUR FOLDER WITH DOMAIN AND SOLVER"
-# PATH_PDDL_FILES = "/home/odiseo/cognitive_pddl/src/Robotica_cognitiva/waypoints_with_pddl/waypoints_with_pddl"
-PATH_PDDL_FILES = "/home/odiseo/PDDL-course/Examples/Exercise7/src/my_pddl_package/domains_and_problems"
-
+PATH_PDDL_FILES = PACKAGE_PATH + "domains_and_problems"
 
 #These are just examples, double check with the domain and problem that you want to use
 DOMAIN_PDDL_FILE = "domain.pddl"
 PROBLEM_PDDL_FILE = "problem.pddl"
 
-
+# Path to folder with waypoints
+PATH_FOLDER_WAYPOINTS= PACKAGE_PATH+"waypoints/"
 
 class PlannerPath(Node):
     """
@@ -63,7 +65,7 @@ class PlannerPath(Node):
 
         # Load waypoints while the solver is running
         waypoints = self.load_waypoints(
-            os.path.join(PATH_PDDL_FILES, "../waypoints/waypoints.yaml")
+            os.path.join(PATH_FOLDER_WAYPOINTS, "waypoints.yaml")
         )
 
         solver.wait()

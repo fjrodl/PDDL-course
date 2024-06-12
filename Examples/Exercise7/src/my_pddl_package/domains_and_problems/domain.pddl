@@ -1,6 +1,7 @@
 (define (domain actionplanner4pathgenerator)	       
-	(:requirements :strips :negative-preconditions :disjunctive-preconditions) ; popf no permite disjunctive-preconditions  https://planning.wiki/ref/planners/popf
-
+	(:requirements :strips :negative-preconditions :disjunctive-preconditions) 
+	; popf does not allow disjunctive-preconditions  https://planning.wiki/ref/planners/popf
+	; you should use Exercise 2 for an option with popf
 	(:constants robot)
 
 	(:predicates (location ?waypoint_x);it defines the locations (waypoints)
