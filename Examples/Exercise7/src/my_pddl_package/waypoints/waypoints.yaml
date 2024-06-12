@@ -1,0 +1,73 @@
+gym:
+  frame_id: "map"
+  position: 
+    x: 1.1332
+    y: 3.6595
+    z: 0.0
+  orientation: 
+    x: 0.0
+    y: 0.0
+    z: -0.85947
+    w: 0.5111
+
+livingroom:
+  frame_id: "map"
+  position: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  orientation: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+
+
+bedroom:
+  frame_id: "map"
+  position: 
+    x: -5.6367
+    y: -0.0124
+    z: 0.0
+  orientation: 
+    x: 0.0
+    y: 0.0
+    z:  0.0345
+    w: 0.9994
+
+corridor:
+  frame_id: "map"
+  position: 
+    x: 2.811339959095405
+    y: 1.0845648443391092
+    z: 0.0
+  orientation: 
+    x: 0.0
+    y: 0.0
+    z: 0.2411662764037768
+    w: 0.970483810851854
+
+toilet:
+  frame_id: "map" 
+  position: 
+    x: -7.03400
+    y: -3.063526
+    z: 0.0
+  orientation: 
+    x: 0.0
+    y: 0.0
+    z: -0.16858817
+    w: 0.985686
+
+
+kitchen:
+  frame_id: "map"
+  position: 
+    x: 7.5614
+    y: -2.9776447
+    z: 0.0
+  orientation: 
+    x: 0.0
+    y: 0.0
+    z: -0.99264
+    w:  0.121074
