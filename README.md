@@ -6,7 +6,7 @@ ACM SIGSOFT Summer School for Software Engineering in Robotics
 [Summer School  website](https://scivenia.com/en/event/summer-school-for-software-engineering-in-robotics_993)
 
 # Table of Contents
-1. [Exercises](#introduction)
+1. [Examples](#introduction)
     1. [Exercise 1: Starting (I)](#exercise1)
     2. [Exercise 2: Starting (II)](#exercise2)
     3. [Exercise 3: Metrics in Planning](#exercise3)
@@ -21,8 +21,9 @@ ACM SIGSOFT Summer School for Software Engineering in Robotics
 4. [Acknowledgments](#Acknowledgments)
 
 
-## Exercises - Task Planning with PDDL  <a name="introduction"></a>
+## Examples - Task Planning with PDDL  <a name="introduction"></a>
 
+The "Examples" folder contains a collection of exercises oriented towards learning PDDL (Planning Domain Definition Language) and other associated tools devoted to manage PDDL. These exercises are designed to reinforce the concepts covered in the lessons (check slides folder) and provide practical experience with PDDL and its applications. 
 
 
 ### Exercise 1 <a name="exercise1"></a>
@@ -51,7 +52,7 @@ Goal: to observe the Sussman anomaly.
 Tools: popf vs vhpop
 
 
-### Exercise 4: Complexity <a name="exercise4"></a>
+### Exercise 5: Complexity <a name="exercise5"></a>
 
 Example of a PDDL domain and problem for a specific field, cybersecurty. Extracted from IPC 2012.
 
@@ -60,7 +61,7 @@ Goal: to observe the complexity associate to some specific domains.
 
 [References](https://github.com/potassco/pddl-instances/tree/master/ipc-2008/domains/cyber-security-sequential-satisficing-strips/domains)
 
-### Exercise 5: From 0 to hero (I): basic exercise.  <a name="exercise5"></a>
+### Exercise 6: From 0 to hero (I): basic exercise.  <a name="exercise6"></a>
 
 In-depth view of durative actions in PDDL. It  allows the modeling of actions that take time to execute, with conditions and effects specified at different points in time. 
 
@@ -151,8 +152,8 @@ You will find also:
 - How to install plansys from package
 - How to install other robots such as turtlebot
 
-In the exercise Merlin:
-- How to install rocker (allows you to open the display locally instead of browser)
+Merlin docker:
+- Double check in the repository how to install rocker (allows you to open the display locally instead of browser)
 - 
 
 
