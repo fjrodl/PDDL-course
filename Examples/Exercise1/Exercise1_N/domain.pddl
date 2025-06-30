@@ -14,10 +14,10 @@
     :effect (and (not (at ?obj ?loc)) (holding ?r ?obj)))
   (:action put_down
     :parameters (?r - robot ?obj - object ?loc - location)
-    :precondition (holding ?r ?obj)
+    :precondition (and (holding ?r ?obj) (at ?r ?loc))
     :effect (and (not (holding ?r ?obj)) (at ?obj ?loc)))
-  (:action visit
-    :parameters (?r - robot ?loc1 - location ?loc2 - location)
-    :precondition (or (at ?r ?loc1) (at ?r ?loc2))
-    :effect (and (not (at ?r ?loc1)) (at ?r ?loc2)))
+  ; (:action visit
+  ;   :parameters (?r - robot ?loc1 - location ?loc2 - location)
+  ;   :precondition (or (at ?r ?loc1) (at ?r ?loc2))
+  ;   :effect (and (not (at ?r ?loc1)) (at ?r ?loc2)))
 )
