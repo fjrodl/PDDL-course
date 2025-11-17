@@ -3,7 +3,8 @@
 ACM SIGSOFT Summer School for Software Engineering in Robotics
 
 
-[Summer School  website](https://scivenia.com/en/event/summer-school-for-software-engineering-in-robotics_993)
+[Brussels 2024 - Summer School  website](https://scivenia.com/en/event/summer-school-for-software-engineering-in-robotics_993)
+[Delft 2025 - Summer School  website](https://scivenia.com/en/event/acm-sigsoft-summer-school-for-software-engineering-in-robotic)
 
 # Table of Contents
 1. [Examples](#introduction)
