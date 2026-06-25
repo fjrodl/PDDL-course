@@ -1,4 +1,4 @@
-#Exercise 2
+# Exercise 3
 
 The "Rover" domain in the International Planning Competition (IPC) is a classic benchmark problem used to evaluate planners. This example involves a rover navigating a grid world to perform tasks while accounting for various constraints such as time and resource consumption. 
 

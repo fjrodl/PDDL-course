@@ -5,6 +5,7 @@ ACM SIGSOFT Summer School for Software Engineering in Robotics
 
 [Brussels 2024 - Summer School  website](https://scivenia.com/en/event/summer-school-for-software-engineering-in-robotics_993)
 [Delft 2025 - Summer School  website](https://scivenia.com/en/event/acm-sigsoft-summer-school-for-software-engineering-in-robotic)
+[2026 - Summer School website](https://scivenia.com/en/event/acm-sigsoft-summer-school-for-software-engineering-in-robotics-2026)
 
 # Table of Contents
 1. [Examples](#introduction)
@@ -16,7 +17,6 @@ ACM SIGSOFT Summer School for Software Engineering in Robotics
     6. [Exercise 6: Durative Actions](#exercise6)
     7. [Exercise 7: From 0 to hero (I): basic exercise](#exercise7)
     8. [Exercise 8: From 0 to hero (II): PlanSys2 and BT's](#exercise8)
-    9. [Exercise 9: From 0 to hero (III): Merlin2 an Hybrid Cognitive Architecture (Planner + FSM-YASMIN) ](#exercise9) 
 2. [General Questions](#questionnaire)
 3. [Requirements and Traversal Tooling](#Requirements)
 4. [Acknowledgments](#Acknowledgments)
@@ -69,15 +69,14 @@ In-depth view of durative actions in PDDL. It  allows the modeling of actions th
 
 Goal: to follow a step by step example of durative actions. 
 
-### Exercise 7: From 0 to hero (I): basic exercise.  <a name="exercise7"></a>
+### Exercise 7: From 0 to hero (I): basic exercise  <a name="exercise7"></a>
 
-In-depth view of durative actions in PDDL. It  allows the modeling of actions that take time to execute, with conditions and effects specified at different points in time. 
+Basic PDDL integration with ROS 2. This exercise introduces how to connect a PDDL planner (SMTPlan) with a ROS 2 robot simulator (tiago_simulator), including configuration, launching, and adapting solver paths.
+
+Goal: to understand the basics of integrating PDDL planning with ROS 2 nodes and simulators.
 
 
-Goal: to follow a step by step example of durative actions. 
-
-
-###  Exercise 8: From 0 to hero (II): PlanSys2 and BT's <a name="exercise8"></a>
+### Exercise 8: From 0 to hero (II): PlanSys2 and BT's <a name="exercise8"></a>
 
 Using PlanSys 2 for interacting with PDDL and robot behaviors. 
 
@@ -92,21 +91,6 @@ If you also want to test BT's with Plansys, the third official tutorial is for y
 #### Extra: Generate documentation from huge source code projects using Doxygen
 
 You can find instructions on the folder Exercise 6
-
-### Exercise 9: From 0 to hero (III): Merlin2 an Hybrid Cognitive Architecture (Planner + FSM-YASMIN) <a name="exercise9"></a>
-
-MERLIN 2. It is a cognitive architecture called MERLIN2 fully compatible with ROS 2. It provides a cognitive architecture framework that suits the hybrid architecture paradigm but it also includes generic architectural tools for managing symbolic knowledge and scheduling robot behaviors.
-
-
-Goal: get familiar with alternative cognitive architecture. Particularly hybrid approaches
-
-[Reference : Paper](https://www.softwareimpacts.com/article/S2665-9638(23)00014-3/fulltext)
-
-[Reference : Read The Doc](https://merlin2.readthedocs.io/en/latest/index.html)
-
-[Reference : Installation](https://merlin2.readthedocs.io/en/latest/Installation.html)
-
-[Reference : Docker](https://github.com/MERLIN2-ARCH/merlin2_docker)
 
 ## General Questions <a name="questionnaire"></a>
 
