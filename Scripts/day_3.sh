@@ -44,6 +44,16 @@ cmake ../ -DCMAKE_BUILD_TYPE=Release -DCMAKE_VERBOSE_MAKEFILE=TRUE
 make -j
 sudo make install
 
+#Check the environment in which you are going to compile POPF
+
+colcon build \
+--packages-select popf \
+--cmake-args \
+-DCMAKE_BUILD_TYPE=Release \
+-DCMAKE_VERBOSE_MAKEFILE=ON
+
+
+
 cd $pkg_dir/src
 
 # Run any additional commands or scripts as needed
