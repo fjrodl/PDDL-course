@@ -8,6 +8,19 @@
 | II | 2025 | Delft | [Summer School Website](https://scivenia.com/en/event/acm-sigsoft-summer-school-for-software-engineering-in-robotic) |
 | III | 2026 | TBA | [Summer School Website](https://www.scivenia.com/en/event/summer-school-for-software-engineering-in-robotics-III) |
 
+## About the SE-Robotics Summer School
+
+The **Software Engineering in Robotics (SE-Robotics)** series of PhD schools is designed to provide a balanced mix of theoretical knowledge and hands-on practice, targeting essential areas of software engineering specifically tailored for robotics.
+
+**Main objectives:**
+
+- To provide an intensive, hands-on learning experience in software engineering within the context of robotics.
+- To expose students to research and industry-standard software development practices in the field of robotics.
+- To discuss challenges raised by real-world robotic applications and how software engineering as a research area can enhance their technological maturity.
+- To facilitate networking opportunities with leading industry professionals and academics in the field.
+
+For more information, visit the [SE-Robotics Summer School website](https://kas-lab.github.io/se_robotics_school/index.html).
+
 ---
 
 ## Table of Contents
