@@ -225,7 +225,7 @@ For the Merlin-based exercises:
 
 **Advanced Autonomy for Robots Applied to the Primary Sector (AURORAS)**
 
-![AURORAS Logo](https://project-auroras.github.io/auroras/logos/tituloblanco.png
+![AURORAS Logo](https://project-auroras.github.io/auroras/logos/tituloblanco.png)
 
 Grant AURORAS are PERMAP PID2024-161761OB-C21 and PLANNAV PID2024-161761OB-C22 funded by MICIU/AEI/10.13039/501100011033 and by ERDF/EU. 
 
