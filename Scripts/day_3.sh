@@ -52,7 +52,9 @@ colcon build \
 -DCMAKE_BUILD_TYPE=Release \
 -DCMAKE_VERBOSE_MAKEFILE=ON
 
-
+# For generating the slides
+# 
+# $ npx @marp-team/marp-cli plansys2.md --pdf
 
 cd $pkg_dir/src
 
