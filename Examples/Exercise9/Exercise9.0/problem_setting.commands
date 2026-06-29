@@ -1,0 +1,11 @@
+set instance robot1 robot
+set instance kitchen room
+set instance livingroom room
+set instance coke object
+set predicate (robot_at robot1 kitchen)
+set predicate (object_at coke kitchen)
+set predicate (gripper_empty robot1)
+
+get problem instances
+get problem predicates
+

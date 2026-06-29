@@ -1,0 +1,24 @@
+set instance turtlebot robot
+set instance start waypoint
+set instance wp1 waypoint
+set instance wp2 waypoint
+set instance wp3 waypoint
+set instance wp4 waypoint
+set instance wp5 waypoint
+set predicate (robot_at turtlebot start)
+set predicate (visited start)
+set predicate (connected start wp1)
+set predicate (connected wp1 wp2)
+set predicate (connected wp2 wp3)
+set predicate (connected wp3 wp4)
+set predicate (connected wp4 wp5)
+set predicate (next start wp1)
+set predicate (next wp1 wp2)
+set predicate (next wp2 wp3)
+set predicate (next wp3 wp4)
+set predicate (next wp4 wp5)
+set goal (and (visited wp5)(visited wp2)(visited wp3)(visited wp4)(visited wp1)(robot_at turtlebot wp5))
+get problem instances
+get problem predicates
+get problem goal
+get plan

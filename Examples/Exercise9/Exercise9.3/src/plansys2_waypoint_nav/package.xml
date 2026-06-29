@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>plansys2_waypoint_nav</name>
+  <version>1.0.0</version>
+  <description>Example 9.4 of PlanSys2 action performer that maps symbolic waypoints to Nav2 goals and a robot follows.</description>
+  <maintainer email="fjrodl">fjrodl</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>ament_index_cpp</depend>
+  <depend>geometry_msgs</depend>
+  <depend>lifecycle_msgs</depend>
+  <depend>nav2_msgs</depend>
+  <depend>plansys2_executor</depend>
+  <depend>plansys2_msgs</depend>
+  <depend>rclcpp</depend>
+  <depend>rclcpp_action</depend>
+  <depend>rclcpp_lifecycle</depend>
+  <depend>yaml-cpp</depend>
+
+  <exec_depend>plansys2_bringup</exec_depend>
+  <exec_depend>plansys2_terminal</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
+  <exec_depend>turtlebot3_gazebo</exec_depend>
+  <exec_depend>turtlebot3_navigation2</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

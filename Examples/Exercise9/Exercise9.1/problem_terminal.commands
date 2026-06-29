@@ -1,0 +1,13 @@
+set instance room1 location
+set instance room2 location
+set instance box object
+set predicate (robot_at room1)
+set predicate (object_at box room1)
+set predicate (connected room1 room2)
+set predicate (connected room2 room1)
+set predicate (hand_empty)
+set goal (and (object_at box room2))
+get problem instances
+get problem predicates
+get problem goal
+get plan
