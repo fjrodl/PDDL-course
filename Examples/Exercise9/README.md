@@ -163,9 +163,7 @@ Before the exercises, verify your installation with the bundled example:
 source /opt/ros/humble/setup.bash
 
 # Terminal 1 — launch PlanSys2
-ros2 launch plansys2_bringup plansys2_bringup_launch_distributed.py \
-  model_file:=/opt/ros/humble/share/plansys2_simple_example/pddl/domain.pddl \
-  problem_file:=empty_problem.pddl
+ros2 launch plansys2_bringup plansys2_bringup_launch_distributed.py model_file:=robot_domain.pddl   problem_file:=empty_problem.pddl
 
 # Terminal 2 — interactive terminal
 ros2 run plansys2_terminal plansys2_terminal
