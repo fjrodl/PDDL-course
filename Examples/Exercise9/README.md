@@ -80,16 +80,13 @@ POPF is the **default planner inside PlanSys2**. It supports temporal (durative)
 
 ```bash
 # Clone POPF
-git clone https://github.com/KCL-Planning/POPF.git
+git clone https://github.com/fmrico/popf.git
 ```
 
 **Option A — Standalone build (CMake):**
 
 ```bash
 cd POPF
-
-# Install Python dependencies
-pip3 install --user -r requirements.txt
 
 # Build the C++ components
 mkdir build && cd build
@@ -106,7 +103,6 @@ mkdir -p popf_ws/src
 cp -r POPF popf_ws/src/
 
 cd popf_ws
-source /opt/ros/humble/setup.bash
 rosdep install --from-paths src --ignore-src -r -y
 colcon build \
   --packages-select popf \
