@@ -25,19 +25,22 @@ class PlanSys2ProblemLoader(Node):
             "/planner/get_plan",
         )
 
-    def wait_for_services(self):
+    def wait_for_services(self, timeout_sec=30):
         for client, name in (
             (self.clear_problem_client, "/problem_expert/clear_problem_knowledge"),
             (self.add_problem_client, "/problem_expert/add_problem"),
             (self.get_plan_client, "/planner/get_plan"),
         ):
             self.get_logger().info(f"Waiting for service {name}...")
-            client.wait_for_service()
+            client.wait_for_service(timeout_sec=timeout_sec)
 
     def call(self, client, request):
         future = client.call_async(request)
         rclpy.spin_until_future_complete(self, future)
-        return future.result()
+        try:
+            return future.result()
+        except Exception as e:
+            raise RuntimeError(f"Service call failed: {e}") from e
 
     def load_problem(self, problem_path):
         problem_text = Path(problem_path).read_text(encoding="utf-8")

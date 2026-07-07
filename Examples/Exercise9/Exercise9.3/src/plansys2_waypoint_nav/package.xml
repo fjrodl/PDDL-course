@@ -22,6 +22,8 @@
   <exec_depend>plansys2_bringup</exec_depend>
   <exec_depend>plansys2_terminal</exec_depend>
   <exec_depend>python3-yaml</exec_depend>
+  <exec_depend>python3-rclpy</exec_depend>
+  <exec_depend>python3-ament-index-python</exec_depend>
   <exec_depend>turtlebot3_gazebo</exec_depend>
   <exec_depend>turtlebot3_navigation2</exec_depend>
 

@@ -10,7 +10,6 @@ from rclpy.action import ActionClient
 from rclpy.node import Node
 
 from plansys2_msgs.action import ExecutePlan
-from plansys2_msgs.srv import AddProblem, ClearProblemKnowledge, GetPlan
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent.parent / "common"))
 from plansys2_client import PlanSys2ProblemLoader
@@ -25,7 +24,7 @@ class WaypointPlanExecutor(PlanSys2ProblemLoader):
     def wait_for_services(self):
         super().wait_for_services()
         self.get_logger().info("Waiting for action /execute_plan...")
-        self.execute_plan_client.wait_for_server()
+        self.execute_plan_client.wait_for_server(timeout_sec=30)
 
     def execute_plan(self, plan):
         goal = ExecutePlan.Goal()
@@ -37,13 +36,17 @@ class WaypointPlanExecutor(PlanSys2ProblemLoader):
         )
         rclpy.spin_until_future_complete(self, send_future)
         goal_handle = send_future.result()
-
+        if goal_handle is None:
+            raise RuntimeError("Failed to send goal to executor")
         if not goal_handle.accepted:
             raise RuntimeError("Executor rejected the plan")
 
         result_future = goal_handle.get_result_async()
         rclpy.spin_until_future_complete(self, result_future)
-        return result_future.result().result
+        result_response = result_future.result()
+        if result_response is None:
+            raise RuntimeError("Failed to receive execution result")
+        return result_response.result
 
     def feedback_callback(self, feedback_msg):
         for item in feedback_msg.feedback.action_execution_status:

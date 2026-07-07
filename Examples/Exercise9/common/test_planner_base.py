@@ -25,8 +25,8 @@ def parse_vhpop_output(output):
             parts = line.split(":")
             if len(parts) >= 2:
                 action_str = parts[1].strip()
-                action_name = action_str.split("(")[1].split()[0] if "(" in action_str else None
-                if action_name:
+                if action_str.startswith("("):
+                    action_name = action_str[1:].split()[0]
                     actions.append(action_name)
     return actions
 
@@ -39,8 +39,8 @@ def parse_popf_output(output):
         line = line.strip()
         if ":" in line and "(" in line and "[" in line:
             action_str = line.split(":")[1].strip() if ":" in line else line
-            if "(" in action_str:
-                action_name = action_str.split("(")[1].split()[0]
+            if action_str.startswith("("):
+                action_name = action_str[1:].split()[0]
                 actions.append(action_name)
     return actions
 
