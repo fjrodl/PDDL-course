@@ -26,6 +26,7 @@ For more information, visit the [SE-Robotics Summer School website](https://kas-
 ## Table of Contents
 
 - [Cognitive Architectures, Task Planning, and PDDL](#cognitive-architectures-task-planning-and-pddl)
+  - [About the SE-Robotics Summer School](#about-the-se-robotics-summer-school)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
     - [Course Structure](#course-structure)
@@ -38,6 +39,7 @@ For more information, visit the [SE-Robotics Summer School website](https://kas-
     - [Exercise 6: Durative Actions](#exercise-6-durative-actions)
     - [Exercise 7: ROS 2 Integration](#exercise-7-ros-2-integration)
     - [Exercise 8: PlanSys2 \& Behavior Trees](#exercise-8-plansys2--behavior-trees)
+    - [Exercise 9: PlanSys2 Exercises](#exercise-9-plansys2-exercises)
   - [General Questions](#general-questions)
     - [Understanding Preconditions and Effects](#understanding-preconditions-and-effects)
     - [Action Execution](#action-execution)
@@ -51,6 +53,7 @@ For more information, visit the [SE-Robotics Summer School website](https://kas-
     - [Installing Dependencies](#installing-dependencies)
     - [Merlin Docker](#merlin-docker)
   - [Acknowledgments](#acknowledgments)
+    - [CORESENSE Project](#coresense-project)
     - [AURORAS Project](#auroras-project)
     - [DMARCE Project](#dmarce-project)
     - [SELF-AIR Project](#self-air-project)
@@ -80,7 +83,7 @@ This course covers **task planning** for autonomous robots using the **Planning 
 
 ## Exercises
 
-The `Examples/` directory contains eight exercises that progressively introduce PDDL concepts and tools. Each exercise includes a `README.md` with detailed instructions and suggested experiments.
+The `Examples/` directory contains nine exercises that progressively introduce PDDL concepts and tools. Each exercise includes a `README.md` with detailed instructions and suggested experiments.
 
 | # | Exercise | Topic | Difficulty | Key Concepts |
 |:-:|----------|-------|:----------:|--------------|
@@ -166,6 +169,18 @@ Advanced exercise using PlanSys2 for interacting with PDDL and robot behaviors. 
 
 ---
 
+### Exercise 9: PlanSys2 Exercises
+
+Progressive exercises introducing PlanSys2 as the ROS 2 bridge between PDDL-based symbolic planning and real robot execution. You will launch PlanSys2, load problems via the terminal or a Python client, extend domains with resource constraints (battery), and connect PlanSys2 to Nav2 for simulated robot execution in Gazebo. Includes automated integration tests that launch PlanSys2, run test problems, and validate results.
+
+**Goal:** Master PlanSys2 from terminal interaction to full Nav2 + Gazebo simulation with automated testing.
+
+**References:**
+- [PlanSys2 Documentation](https://plansys2.github.io/)
+- [Exercise 9 README](Examples/Exercise9/)
+
+---
+
 ## General Questions
 
 These questions reinforce the key concepts presented during the session and encourage critical thinking about robot coordination, planning, and execution.
@@ -234,38 +249,13 @@ For the Merlin-based exercises:
 
 ## Acknowledgments
 
+This work has received funding from:
 
-### AURORAS Project
+- **CORESENSE** (Grant 101070254) — European Union's Horizon Europe research and innovation programme
+- **AURORAS** (PERMAP PID2024-161761OB-C21, PLANNAV PID2024-161761OB-C22) — MICIU/AEI/ERDF
+- **DMARCE** (EDMAR PID2021-126592OB-C21, CASCAR PID2021-126592OB-C22) — MCIN/AEI/ERDF
+- **SELF-AIR** (TED2021-132356B-I00) — MCIN/AEI/NextGenerationEU
 
-**Advanced Autonomy for Robots Applied to the Primary Sector (AURORAS)**
-
-![AURORAS Logo](https://project-auroras.github.io/auroras/logos/tituloblanco.png)
-
-Grant AURORAS are PERMAP PID2024-161761OB-C21 and PLANNAV PID2024-161761OB-C22 funded by MICIU/AEI/10.13039/501100011033 and by ERDF/EU. 
-
-![EU Funding Logo](https://raw.githubusercontent.com/DMARCE-PROJECT/DMARCE-PROJECT.github.io/main/logos/micin-uefeder-aei.png)
-
----
+*Views and opinions expressed are those of the author(s) only and do not necessarily reflect those of the European Union or the Horizon Europe programme. Neither the European Union nor the granting authority can be held responsible for them.*
 
 
-### DMARCE Project
-
-**Decision Making in Autonomous Robots: Cybersecurity and Explainability**
-
-![DMARCE Logo](https://user-images.githubusercontent.com/3810011/192087445-9aa45366-1fec-41f5-a7c9-fa612901ecd9.png)
-
-EDMAR PID2021-126592OB-C21 & CASCAR PID2021-126592OB-C22 funded by MCIN/AEI/10.13039/501100011033 and by ERDF A way of making Europe.
-
-![EU Funding Logo](https://raw.githubusercontent.com/DMARCE-PROJECT/DMARCE-PROJECT.github.io/main/logos/micin-uefeder-aei.png)
-
----
-
-### SELF-AIR Project
-
-**Supporting Extensive Livestock Farming with the use of Autonomous Intelligent Robots**
-
-<img src="https://raw.githubusercontent.com/shepherd-robot/.github/main/profile/robotics_wolf_minimal.png" alt="SELF-AIR Logo" width="50%">
-
-Grant TED2021-132356B-I00 funded by MCIN/AEI/10.13039/501100011033 and by the "European Union NextGenerationEU/PRTR".
-
-![EU NextGeneration Logo](https://raw.githubusercontent.com/shepherd-robot/.github/main/profile/micin-financiadoUEnextgeneration-prtr-aei.png)
