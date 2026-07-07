@@ -3,7 +3,7 @@
   <name>plansys2_waypoint_nav</name>
   <version>1.0.0</version>
   <description>Example 9.4 of PlanSys2 action performer that maps symbolic waypoints to Nav2 goals and a robot follows.</description>
-  <maintainer email="fjrodl">fjrodl</maintainer>
+  <maintainer email="fjrodl@unileon.es">fjrodl</maintainer>
   <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
