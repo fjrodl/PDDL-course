@@ -49,7 +49,7 @@ sudo apt install -y ros-jazzy-plansys2-*
 Verify the installation:
 
 ```bash
-source /opt/ros/humble/setup.bash   # or jazzy
+source /opt/ros/jazzy/setup.bash   # or humble
 ros2 pkg list | grep plansys2
 ```
 
@@ -156,7 +156,7 @@ Problem Expert ← PDDL problem (instances, predicates, goal)
 Before the exercises, verify your installation with the bundled example:
 
 ```bash
-source /opt/ros/humble/setup.bash
+source /opt/ros/jazzy/setup.bash   # or humble
 
 # Terminal 1 — launch PlanSys2
 ros2 launch plansys2_bringup plansys2_bringup_launch_distributed.py model_file:=robot_domain.pddl   problem_file:=empty_problem.pddl
@@ -214,7 +214,7 @@ Notice that predicates and actions use **typed parameters** (e.g., `?r - robot`,
 ### Step 2 — Launch PlanSys2
 
 ```bash
-source /opt/ros/humble/setup.bash
+source /opt/ros/jazzy/setup.bash   # or humble
 
 # From the Exercise9.0 directory:
 cd Exercise9.0
@@ -341,13 +341,14 @@ Exercise9.1/
 ├── pddl/
 │   ├── robot_domain.pddl              # PDDL domain
 │   ├── robot_problem.pddl             # PDDL problem (for offline validation)
+│   ├── empty_problem.pddl             # Minimal problem file (required for PlanSys2 launch)
 │   ├── test_basic_transport.pddl      # Test: basic box transport
 │   ├── test_same_room_goal.pddl       # Test: goal already satisfied
 │   ├── test_two_objects.pddl          # Test: two boxes to move
 │   ├── test_three_rooms.pddl          # Test: three-room chain
 │   └── test_unreachable.pddl          # Test: no path between rooms
 ├── scripts/
-│   ├── load_problem_and_plan.py       # Python client to load problem + get plan
+│   ├── load_problem_and_plan.py       # Python client to load problem + get plan (requires running PlanSys2)
 │   └── test_planner.py                # Automated test suite (vhpop or popf)
 └── problem_terminal.commands          # Commands for plansys2_terminal
 ```
@@ -396,12 +397,12 @@ Plan length: 3
 ### Step 3 — Launch PlanSys2
 
 ```bash
-source /opt/ros/humble/setup.bash
+source /opt/ros/jazzy/setup.bash   # or humble
 
 # Terminal 1 — launch PlanSys2 with the domain
 ros2 launch plansys2_bringup plansys2_bringup_launch_distributed.py \
   model_file:=$(pwd)/pddl/robot_domain.pddl \
-  problem_file:=empty_problem.pddl
+  problem_file:=$(pwd)/pddl/empty_problem.pddl
 ```
 
 Check that the nodes started correctly:
@@ -452,8 +453,14 @@ Expected plan:
 ### Step 5 — Load the Problem via Python
 
 ```bash
-# Terminal 2 (after closing the terminal)
-python3 load_problem_and_plan.py
+# Terminal 1 — launch PlanSys2 with the domain
+source /opt/ros/jazzy/setup.bash   # or humble
+ros2 launch plansys2_bringup plansys2_bringup_launch_distributed.py \
+  model_file:=$(pwd)/pddl/robot_domain.pddl \
+  problem_file:=$(pwd)/pddl/empty_problem.pddl
+
+# Terminal 2 — run the Python client
+python3 scripts/load_problem_and_plan.py
 ```
 
 Expected output:
@@ -632,13 +639,14 @@ Exercise9.2/
 ├── pddl/
 │   ├── robot_domain_energy.pddl           # Extended domain with battery + recharge
 │   ├── robot_problem_energy.pddl          # Problem with 3 rooms and charger
+│   ├── empty_problem.pddl                 # Minimal problem file (required for PlanSys2 launch)
 │   ├── test_energy_basic.pddl             # Test: basic recharge scenario
 │   ├── test_energy_charger_at_start.pddl  # Test: charger at room1
 │   ├── test_energy_no_charger.pddl        # Test: no charger — unreachable
 │   ├── test_energy_four_rooms.pddl        # Test: four rooms, two chargers
 │   └── test_energy_start_low.pddl         # Test: start with low battery
 ├── scripts/
-│   ├── load_problem_and_plan.py           # Python client to load problem + get plan
+│   ├── load_problem_and_plan.py           # Python client to load problem + get plan (requires running PlanSys2)
 │   └── test_planner.py                    # Automated test suite (vhpop or popf)
 └── problem_terminal.commands              # Terminal commands for the energy problem
 ```
@@ -698,13 +706,13 @@ Notice how both planners insert `recharge room_mid` between the two moves. The b
 ### Step 3 — Launch PlanSys2 with the Energy Domain
 
 ```bash
-source /opt/ros/humble/setup.bash
+source /opt/ros/jazzy/setup.bash   # or humble
 
 # Terminal 1 — from the Exercise9.2 directory:
 cd Exercise9.2
 ros2 launch plansys2_bringup plansys2_bringup_launch_distributed.py \
   model_file:=$(pwd)/pddl/robot_domain_energy.pddl \
-  problem_file:=empty_problem.pddl
+  problem_file:=$(pwd)/pddl/empty_problem.pddl
 ```
 
 ### Step 4 — Load the Problem via Terminal
@@ -889,7 +897,31 @@ All tests passed!
 
 **Note:** The no-charger test is genuinely unsolvable — the robot cannot reach room2 without recharging, and there is no charger. Both VHPOP and POPF will timeout on this problem (POPF's static analysis cannot detect this case without search). The test script accepts timeout as a valid result for this test.
 
-### Step 6 — Experiment
+### Step 6 — Load the Problem via Python (PlanSys2 Integration)
+
+```bash
+# Terminal 1 — launch PlanSys2 with the energy domain
+source /opt/ros/jazzy/setup.bash   # or humble
+ros2 launch plansys2_bringup plansys2_bringup_launch_distributed.py \
+  model_file:=$(pwd)/pddl/robot_domain_energy.pddl \
+  problem_file:=$(pwd)/pddl/empty_problem.pddl
+
+# Terminal 2 — run the Python client
+python3 scripts/load_problem_and_plan.py
+```
+
+Expected output:
+
+```
+Plan generated from Python:
+0.000: (pick box room1) [0.001]
+0.001: (move room1 room_mid) [0.001]
+0.002: (recharge room_mid) [0.001]
+0.003: (move room_mid room2) [0.001]
+0.004: (place box room2) [0.001]
+```
+
+### Step 7 — Experiment
 
 Try modifying the problem:
 
@@ -981,7 +1013,7 @@ cp -r Exercise9.3/src/plansys2_waypoint_nav plansys2_ws/src/
 cd plansys2_ws
 
 # Install dependencies
-source /opt/ros/humble/setup.bash
+source /opt/ros/jazzy/setup.bash   # or humble
 rosdep install --from-paths src --ignore-src -r -y
 
 # Build
@@ -1007,6 +1039,10 @@ plansys2_waypoint_nav navigate_action_node
 You need **TurtleBot3 Gazebo**, **Nav2**, and **PlanSys2** installed:
 
 ```bash
+# ROS 2 Jazzy
+sudo apt install -y ros-jazzy-turtlebot3-* ros-jazzy-nav2-*
+
+# ROS 2 Humble
 sudo apt install -y ros-humble-turtlebot3-* ros-humble-nav2-*
 ```
 
@@ -1052,7 +1088,7 @@ Execution result: success
 **Terminal 3 (Optional) — Interactive Terminal:**
 
 ```bash
-source /opt/ros/humble/setup.bash
+source /opt/ros/jazzy/setup.bash   # or humble
 ros2 run plansys2_terminal plansys2_terminal
 ```
 
@@ -1147,7 +1183,7 @@ class PlanSys2Client(Node):
 | Planner returns no plan | Check that preconditions can be satisfied; verify `connected` predicates are bidirectional |
 | `Could not contact planner` | Make sure PlanSys2 is launched and `ros2 node list` shows `/planner` |
 | Action performer not found | The node must be running and registered with the correct action name |
-| `ros-humble-test-msgs` error during build | Run `sudo apt install ros-humble-test-msgs` then rebuild |
+| `ros-*-test-msgs` error during build | Run `sudo apt install ros-jazzy-test-msgs` (or `ros-humble-test-msgs`) then rebuild |
 | `getExpr: Error parsing expresion` warnings | Harmless — occurs when sourcing `.commands` files with `source`. The system works correctly. Paste commands interactively instead. |
 
 ---

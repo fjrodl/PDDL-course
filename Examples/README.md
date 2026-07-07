@@ -12,6 +12,7 @@ This directory contains a collection of exercises for learning PDDL (Planning Do
 | [Exercise 6](Exercise6/) | Durative Actions | Step-by-step temporal planning with PDDL2.1 |
 | [Exercise 7](Exercise7/) | ROS 2 Integration | Connecting PDDL planners with ROS 2 simulators |
 | [Exercise 8](Exercise8/) | PlanSys2 & BTs | PlanSys2 framework and behavior trees |
+| [Exercise 9](Exercise9/) | PlanSys2 Exercises | PlanSys2 terminal, Python client, battery constraints, Nav2 + Gazebo integration |
 
 ## Running the Exercises
 
