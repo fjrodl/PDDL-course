@@ -107,7 +107,7 @@ def main():
     parser = None
 
     if len(sys.argv) > 1:
-        planner = sys.argv[1]
+        planner = find_planner(sys.argv[1])
     else:
         for candidate in ["vhpop", "popf"]:
             path = find_planner(candidate)
