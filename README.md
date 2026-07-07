@@ -6,7 +6,7 @@
 |:-------:|:----:|:--------:|------|
 | I | 2024 | Brussels | [Summer School Website](https://scivenia.com/en/event/summer-school-for-software-engineering-in-robotics_993) |
 | II | 2025 | Delft | [Summer School Website](https://scivenia.com/en/event/acm-sigsoft-summer-school-for-software-engineering-in-robotic) |
-| III | 2026 | TBA | [Summer School Website](https://www.scivenia.com/en/event/summer-school-for-software-engineering-in-robotics-III) |
+| III | 2026 | Delft | [Summer School Website](https://www.scivenia.com/en/event/summer-school-for-software-engineering-in-robotics-III) |
 
 ## About the SE-Robotics Summer School
 
@@ -53,10 +53,6 @@ For more information, visit the [SE-Robotics Summer School website](https://kas-
     - [Installing Dependencies](#installing-dependencies)
     - [Merlin Docker](#merlin-docker)
   - [Acknowledgments](#acknowledgments)
-    - [CORESENSE Project](#coresense-project)
-    - [AURORAS Project](#auroras-project)
-    - [DMARCE Project](#dmarce-project)
-    - [SELF-AIR Project](#self-air-project)
 
 ---
 
@@ -251,8 +247,11 @@ For the Merlin-based exercises:
 
 This work has received funding from:
 
+**Active projects:**
 - **CORESENSE** (Grant 101070254) — European Union's Horizon Europe research and innovation programme
 - **AURORAS** (PERMAP PID2024-161761OB-C21, PLANNAV PID2024-161761OB-C22) — MICIU/AEI/ERDF
+
+**Completed projects:**
 - **DMARCE** (EDMAR PID2021-126592OB-C21, CASCAR PID2021-126592OB-C22) — MCIN/AEI/ERDF
 - **SELF-AIR** (TED2021-132356B-I00) — MCIN/AEI/NextGenerationEU
 
