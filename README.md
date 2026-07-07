@@ -230,6 +230,39 @@ The script handles:
 - Installing PlanSys2 from package
 - Setting up additional robot simulators (e.g., TurtleBot)
 
+### Pixi (Reproducible Environment)
+
+For a fully reproducible, dependency-isolated environment — including PlanSys2, Nav2, TurtleBot3, and all course packages — you can use the [Pixi](https://pixi.sh) setup maintained by [gavanderhoorn](https://github.com/gavanderhoorn):
+
+1. Install Pixi following the [official instructions](https://pixi.sh/latest/installation/).
+2. Clone the Pixi workspace:
+   ```bash
+   git clone git@github.com:gavanderhoorn/fjrodl_pddl_course_jazzy_pixi.git
+   cd fjrodl_pddl_course_jazzy_pixi
+   ```
+3. Install dependencies and fetch source packages:
+   ```bash
+   pixi install
+   pixi run fetch
+   ```
+4. Build the workspace:
+   ```bash
+   pixi run build
+   ```
+5. Enter the environment:
+   ```bash
+   pixi shell
+   source install/setup.bash
+   ```
+
+This approach provides:
+- **Binary PlanSys2 packages** from the robostack-jazzy channel on Linux (no source build needed)
+- **Isolated environment** — no conflicts with system-wide ROS 2 installations
+- **Cross-platform support** — macOS (Intel) is also supported, with PlanSys2 built from source
+- **Reproducible builds** — `pixi.lock` pins all dependency versions
+
+See the [Pixi workspace README](https://github.com/gavanderhoorn/fjrodl_pddl_course_jazzy_pixi) for details.
+
 ### Merlin Docker
 
 For the Merlin-based exercises:
