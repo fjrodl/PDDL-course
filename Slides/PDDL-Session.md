@@ -1,6 +1,6 @@
 # Session: Cognitive Architectures, Task Planning, and PDDL
 
-**ACM SIGSOFT Summer School for Software Engineering in Robotics**
+**Summer School for Software Engineering in Robotics**
 
 **Francisco J. Rodriguez Lera**
 
@@ -883,4 +883,4 @@ validate domain.pddl problem.pddl plan.siplan
 
 ---
 
-*ACM SIGSOFT Summer School for Software Engineering in Robotics*
+*Summer School for Software Engineering in Robotics*

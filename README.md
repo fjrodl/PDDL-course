@@ -1,6 +1,6 @@
 # Cognitive Architectures, Task Planning, and PDDL
 
-> **ACM SIGSOFT Summer School for Software Engineering in Robotics**
+> **Summer School for Software Engineering in Robotics**
 
 | Edition | Year | Location | Link |
 |:-------:|:----:|:--------:|------|
@@ -92,6 +92,7 @@ The `Examples/` directory contains eight exercises that progressively introduce 
 | 6 | [Durative Actions](Examples/Exercise6/) | Temporal planning | ⭐⭐ | PDDL2.1, step-by-step walkthrough |
 | 7 | [ROS 2 Integration](Examples/Exercise7/) | SMTPlan + ROS 2 | ⭐⭐⭐ | tiago_simulator, action performers |
 | 8 | [PlanSys2 & BTs](Examples/Exercise8/) | PlanSys2 framework | ⭐⭐⭐ | Behavior trees, Doxygen documentation |
+| 9 | [PlanSys2 Exercises](Examples/Exercise9/) | PlanSys2 in ROS 2 | ⭐⭐⭐ | PlanSys2 terminal, Python client, battery constraints, Nav2 + Gazebo integration |
 
 ---
 
@@ -161,7 +162,7 @@ Advanced exercise using PlanSys2 for interacting with PDDL and robot behaviors. 
 
 **References:**
 - [PlanSys2 Build Instructions](https://plansys2.github.io/build_instructions/index.html)
-- [PlanSys2 Tutorials](https://github.com/PlanSys2/ros2_planning_system_examples/tree/humble)
+- [PlanSys2 Tutorials](https://github.com/PlanSys2/ros2_planning_system_examples/tree/jazzy)
 
 ---
 

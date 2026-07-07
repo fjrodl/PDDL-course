@@ -61,7 +61,7 @@ sudo apt-get -qy install libz3-dev git g++ cmake coinor-libcbc-dev coinor-libcgl
 
 #Check the environment in which you are going to compile POPF
 
-#Environment Distro ROS 2 HUMBLE => Ubuntu 22.04, check the repository (some have humble-devel and other just humble)
+#Environment Distro ROS 2 JAZZY => Ubuntu 24.04, check the repository (some have jazzy-devel and other just jazzy)
 
 git clone -b $ROS_DISTRO-devel  https://github.com/fmrico/popf.git
 cd popf

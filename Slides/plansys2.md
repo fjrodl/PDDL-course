@@ -4,7 +4,7 @@ theme: default
 paginate: true
 size: 16:9
 footer: "Middleware for Software Design in Robotics | PlanSys2"
-header: "ACM SIGSOFT Summer School"
+header: "Summer School for Software Engineering in Robotics"
 ---
 
 <!-- _class: lead -->
