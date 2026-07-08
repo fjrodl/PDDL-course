@@ -258,10 +258,11 @@ For a fully reproducible, dependency-isolated environment — including PlanSys2
 This approach provides:
 - **Binary PlanSys2 packages** from the robostack-jazzy channel on Linux (no source build needed)
 - **Isolated environment** — no conflicts with system-wide ROS 2 installations
-- **Cross-platform support** — macOS (Intel) is also supported, with PlanSys2 built from source
 - **Reproducible builds** — `pixi.lock` pins all dependency versions
 
 See the [Pixi workspace README](https://github.com/gavanderhoorn/fjrodl_pddl_course_jazzy_pixi) for details.
+
+Note: the `pixi.toml` includes macOS (Intel) support (with PlanSys2 built from source), but that isn't completely functional yet, as `popf` doesn't work reliably.
 
 ### Merlin Docker
 
